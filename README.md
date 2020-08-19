@@ -7,4 +7,4 @@ Once you finish the design, you will use axios to make XMLHttpRequests. In "help
 
 Once you commit your design, I will do a very high level code review and then give you the API key which you will have to assign to "x-api-key" in the header for the API calls.
 
-YOu should commit to github frequently.
+You should commit to github frequently.
