@@ -1,0 +1,17 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+.single-product h1 {
+  color: "#ff0";
+}
+
+.products {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1060px;
+}
+.products a {
+  padding: 1rem 0rem;
+}

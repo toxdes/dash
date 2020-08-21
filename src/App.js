@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Provider as StoreProvider, useSelector } from "react-redux";
+import SingleProduct from "./components/SingleProduct";
+import Products from "./components/Products";
+import store, { PAGES } from "./store";
 
-function App() {
+import "./styles.css";
+
+function MyApp() {
+  const activePage = useSelector((state) => state.activePage);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {activePage === PAGES.PRODUCTS ? <Products /> : <SingleProduct />}
     </div>
+  );
+}
+function App() {
+  return (
+    <StoreProvider store={store}>
+      <MyApp />
+    </StoreProvider>
   );
 }
 
