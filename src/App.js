@@ -9,7 +9,7 @@ import "./styles.css";
 function MyApp() {
   const activePage = useSelector((state) => state.activePage);
   return (
-    <div className="App">
+    <div className="app">
       {activePage === PAGES.PRODUCTS ? <Products /> : <SingleProduct />}
     </div>
   );

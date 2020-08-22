@@ -22,7 +22,7 @@ export const PAGES = {
 };
 
 const initialState = {
-  activePage: PAGES.PRODUCTS,
+  activePage: PAGES.SINGLE_PRODUCT,
 };
 
 // reducer
