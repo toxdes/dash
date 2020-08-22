@@ -2,27 +2,11 @@ import React from "react";
 import { PAGES, navigate } from "../store";
 import { useDispatch } from "react-redux";
 import { FaLock } from "react-icons/fa";
-function SideBox({ data }) {
-  return (
-    <div className="sidebox">
-      <p>{data.sensorID}</p>
-      <p>{data.productID}</p>
-      <p>{data.vesselID}</p>
-      <p>{data.commandCode}</p>
-      <p>{data.sensorState}</p>
-      <p>{data.Payload}</p>
-      <p>{data.timeStamp}</p>
-      <p>{data.kickDate}</p>
-      <p>{data.sellPerOz}</p>
-      <p>{data.currentFlowRate}</p>
-    </div>
-  );
-}
 
 const fakeData = {
   isLocked: true,
   tapID: "223",
-  batteryVolt: 84,
+  batteryVolt: 248.4,
   productName: "Product Name 1",
   productStyle: "Product style 1",
   manufacturer: "Overpriced Apple",
@@ -145,6 +129,22 @@ export default function SingleProduct() {
           <h3>{data.messageForUser2}</h3>
         </div>
       </div>
+    </div>
+  );
+}
+function SideBox({ data }) {
+  return (
+    <div className="sidebox">
+      <p>{data.sensorID}</p>
+      <p>{data.productID}</p>
+      <p>{data.vesselID}</p>
+      <p>{data.commandCode}</p>
+      <p>{data.sensorState}</p>
+      <p>{data.Payload}</p>
+      <p>{data.timeStamp}</p>
+      <p>{data.kickDate}</p>
+      <p>{data.sellPerOz}</p>
+      <p>{data.currentFlowRate}</p>
     </div>
   );
 }
