@@ -1,10 +1,18 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { navigate, PAGES } from "../store";
+import { useDispatch, useSelector } from "react-redux";
+import { navigate, PAGES, setLoading } from "../store";
+import { Loading } from "./common";
 
 export default function Products() {
   const dispatch = useDispatch();
   // TODO: allow information to pass on when navigating
+  const loading = useSelector((state) => state.loading);
+  setTimeout(() => {
+    dispatch(setLoading(false));
+  }, 5000);
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="products">
       <h1>A grid of products here</h1>

@@ -1,12 +1,19 @@
 import { createStore } from "redux";
 // actions
 const SET_ACTIVE_PAGE = "SET_ACTIVE_PAGE";
-
+const SET_LOADING = "SET_LOADING";
 // action creators
 export const navigate = (page) => {
   return {
     type: SET_ACTIVE_PAGE,
     payload: { page },
+  };
+};
+
+export const setLoading = (loading) => {
+  return {
+    type: SET_LOADING,
+    payload: { loading },
   };
 };
 // initial state
@@ -23,6 +30,7 @@ export const PAGES = {
 
 const initialState = {
   activePage: PAGES.PRODUCTS,
+  loading: true,
 };
 
 // reducer
@@ -34,6 +42,11 @@ const reducer = (state = initialState, action) => {
         activePage: action.payload.page,
       };
     }
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload.loading,
+      };
     default:
       return state;
   }
