@@ -1,21 +1,6 @@
-import { createStore } from "redux";
-// actions
-const SET_ACTIVE_PAGE = "SET_ACTIVE_PAGE";
-const SET_LOADING = "SET_LOADING";
-// action creators
-export const navigate = (page) => {
-  return {
-    type: SET_ACTIVE_PAGE,
-    payload: { page },
-  };
-};
-
-export const setLoading = (loading) => {
-  return {
-    type: SET_LOADING,
-    payload: { loading },
-  };
-};
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { SET_ACTIVE_PAGE, SET_LOADING, SET_ERROR, PAGES } from "./actions";
 // initial state
 
 /**
@@ -23,14 +8,11 @@ export const setLoading = (loading) => {
  * products -> grid of products
  * single_product -> single product (detailed)
  */
-export const PAGES = {
-  PRODUCTS: "products",
-  SINGLE_PRODUCT: "single_product",
-};
 
 const initialState = {
   activePage: PAGES.PRODUCTS,
   loading: true,
+  error: false,
 };
 
 // reducer
@@ -47,9 +29,14 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: action.payload.loading,
       };
+    case SET_ERROR:
+      return {
+        ...state,
+        error: action.payload.error,
+      };
     default:
       return state;
   }
 };
 
-export default createStore(reducer);
+export default createStore(reducer, applyMiddleware(thunk));

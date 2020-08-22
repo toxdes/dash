@@ -1,5 +1,5 @@
 import React from "react";
-import { PAGES, navigate } from "../store";
+import { PAGES, navigate } from "../store/actions";
 import { useDispatch } from "react-redux";
 import { FaLock } from "react-icons/fa";
 

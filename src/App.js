@@ -2,7 +2,8 @@ import React from "react";
 import { Provider as StoreProvider, useSelector } from "react-redux";
 import SingleProduct from "./components/SingleProduct";
 import Products from "./components/Products";
-import store, { PAGES } from "./store";
+import store from "./store";
+import { PAGES } from "./store/actions";
 
 import "./styles.css";
 
