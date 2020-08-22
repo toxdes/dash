@@ -4,6 +4,10 @@ import { useDispatch } from "react-redux";
 import { FaLock } from "react-icons/fa";
 
 const fakeData = {
+  gatewayID: "gateway_id_123",
+  sensorID: "sensor_id_123",
+  siteID: "site_id_123",
+  customerID: "customer_id_123",
   isLocked: true,
   tapID: "223",
   batteryVolt: 248.4,

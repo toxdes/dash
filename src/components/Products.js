@@ -1,38 +1,52 @@
 import React from "react";
+import { fetchProducts } from "../store/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { navigate, PAGES, setLoading } from "../store/actions";
 import { Loading, Error } from "./common";
 
 export default function Products() {
   const dispatch = useDispatch();
-  // TODO: allow information to pass on when navigating
   const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
-  setTimeout(() => {
-    dispatch(setLoading(false));
-  }, 5000);
-  if (loading) {
-    return <Loading />;
+  const products = useSelector((state) => state.products);
+  const handleCardClick = (card) => {
+    alert(`navigate to card number ${card}`);
+  };
+  // TODO: allow information to pass on when navigating
+
+  if (loading) return <Loading />;
+  if (error) return <Error />;
+
+  if (!products && !loading) {
+    // fetch
+    console.log("dispatching fetchproducts");
+    dispatch(fetchProducts());
   }
-  if (error) {
-    return <Error />;
-  }
+
+  // If we're here, then products are loaded
   return (
     <div className="products">
       <h1>A grid of products here</h1>
-      {Array.from({ length: 10 }).map((_, each) => {
-        return (
-          <a
-            href="./bruh"
-            onClick={(e) => {
-              e.preventDefault();
-              dispatch(navigate(PAGES.SINGLE_PRODUCT));
-            }}
-          >
-            Product {each}
-          </a>
-        );
-      })}
+      <div className="content">
+        {products?.map((each, i) => {
+          const uniqKey = `${each.productID}_uniq_${i}`;
+          return (
+            <SmallCard
+              key={uniqKey}
+              data={each}
+              onClick={() => handleCardClick(i)}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function SmallCard({ data, onClick }) {
+  return (
+    <div onClick={onClick} className="small-card">
+      <p>Ayy got the data</p>
+      <p>{data.productName}</p>
     </div>
   );
 }

@@ -1,6 +1,12 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import { SET_ACTIVE_PAGE, SET_LOADING, SET_ERROR, PAGES } from "./actions";
+import {
+  SET_ACTIVE_PAGE,
+  SET_LOADING,
+  SET_ERROR,
+  PAGES,
+  SET_PRODUCTS,
+} from "./actions";
 // initial state
 
 /**
@@ -11,8 +17,9 @@ import { SET_ACTIVE_PAGE, SET_LOADING, SET_ERROR, PAGES } from "./actions";
 
 const initialState = {
   activePage: PAGES.PRODUCTS,
-  loading: true,
+  loading: false,
   error: false,
+  products: undefined,
 };
 
 // reducer
@@ -33,6 +40,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.payload.error,
+        loading: false,
+      };
+    case SET_PRODUCTS:
+      return {
+        ...state,
+        loading: false,
+        products: action.payload.products,
       };
     default:
       return state;

@@ -8,7 +8,19 @@ import { PAGES } from "./store/actions";
 import "./styles.css";
 
 function MyApp() {
+  // const dispatch = useDispatch();
   const activePage = useSelector((state) => state.activePage);
+  // const loading = useSelector((state) => state.loading);
+  // const error = useSelector((state) => state.error);
+  // setTimeout(() => {
+  //   dispatch(setLoading(false));
+  // }, 5000);
+  // if (loading) {
+  //   return <Loading />;
+  // }
+  // if (error) {
+  //   return <Error />;
+  // }
   return (
     <div className="app">
       {activePage === PAGES.PRODUCTS ? <Products /> : <SingleProduct />}
