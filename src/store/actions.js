@@ -6,6 +6,13 @@ export const SET_LOADING = "SET_LOADING";
 export const SET_ERROR = "SET_ERROR";
 export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 export const SET_PRODUCTS = "SET_PRODUCTS";
+export const SET_ACTIVE_PRODUCT = "SET_ACTIVE_PRODUCT";
+
+/**
+ * Active pages are:
+ * products -> grid of products
+ * single_product -> single product (detailed)
+ */
 export const PAGES = {
   PRODUCTS: "products",
   SINGLE_PRODUCT: "single_product",
@@ -37,6 +44,14 @@ export const setProducts = (products) => {
     payload: { products },
   };
 };
+
+export const setActiveProduct = (product) => {
+  return {
+    type: SET_ACTIVE_PRODUCT,
+    payload: { product },
+  };
+};
+
 // async actionCreactors
 export const fetchProducts = () => {
   return async (dispatch) => {

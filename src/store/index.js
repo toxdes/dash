@@ -6,20 +6,17 @@ import {
   SET_ERROR,
   PAGES,
   SET_PRODUCTS,
+  SET_ACTIVE_PRODUCT,
 } from "./actions";
 // initial state
-
-/**
- * Active pages are:
- * products -> grid of products
- * single_product -> single product (detailed)
- */
 
 const initialState = {
   activePage: PAGES.PRODUCTS,
   loading: false,
   error: false,
   products: undefined,
+  // could've just used a index as well
+  activeProduct: undefined,
 };
 
 // reducer
@@ -47,6 +44,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         loading: false,
         products: action.payload.products,
+      };
+    case SET_ACTIVE_PRODUCT:
+      return {
+        ...state,
+        activeProduct: action.payload.product,
       };
     default:
       return state;

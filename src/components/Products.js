@@ -1,5 +1,10 @@
 import React from "react";
-import { fetchProducts } from "../store/actions";
+import {
+  fetchProducts,
+  navigate,
+  setActiveProduct,
+  PAGES,
+} from "../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Loading, Error } from "./common";
 
@@ -9,7 +14,8 @@ export default function Products() {
   const error = useSelector((state) => state.error);
   const products = useSelector((state) => state.products);
   const handleCardClick = (card) => {
-    alert(`navigate to card number ${card}`);
+    dispatch(setActiveProduct(products[card]));
+    dispatch(navigate(PAGES.SINGLE_PRODUCT));
   };
   // TODO: allow information to pass on when navigating
 
@@ -17,7 +23,7 @@ export default function Products() {
   if (error) return <Error />;
 
   if (!products && !loading) {
-    // fetch
+    // maybe !loading is redundent here
     console.log("dispatching fetchproducts");
     dispatch(fetchProducts());
   }

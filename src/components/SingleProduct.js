@@ -1,6 +1,6 @@
 import React from "react";
 import { PAGES, navigate } from "../store/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaLock } from "./common";
 
 const fakeData = {
@@ -43,7 +43,8 @@ const fakeData = {
 };
 export default function SingleProduct() {
   const dispatch = useDispatch();
-  const data = fakeData;
+  // const data = fakeData;
+  const data = useSelector((state) => state.activeProduct);
   // TODO: Update addressbar URL OR use react-router?
   // TODO: Using css-loader / CSS in JS instead of global styles?
   return (
