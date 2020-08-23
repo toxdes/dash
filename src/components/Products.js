@@ -32,6 +32,17 @@ export default function Products() {
   return (
     <div className="products">
       <h1>A grid of products here</h1>
+      <div className="horizontal-bar">
+        <p onClick={() => alert("Should something happen?")}>
+          {products && products[0].customerID}
+        </p>
+        <p onClick={() => alert("Should something happen?")}>
+          {products && products[0].siteID}
+        </p>
+        <p onClick={() => alert("Should something happen?")}>
+          {products && products[0].gatewayID}
+        </p>
+      </div>
       <div className="content">
         {products?.map((each, i) => {
           const uniqKey = `${each.productID}_uniq_${i}`;

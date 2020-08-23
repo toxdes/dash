@@ -3,7 +3,8 @@ import { PAGES, navigate } from "../store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { FaLock } from "./common";
 
-const fakeData = {
+// JSON api server it now, but leaving it here just in case.
+/*const fakeData = {
   gatewayID: "gateway_id_123",
   sensorID: "sensor_id_123",
   siteID: "site_id_123",
@@ -40,10 +41,9 @@ const fakeData = {
   volumeLeftinOz: 256,
   messageForUser: "Unexpected Object on keg",
   messageForUser2: "4 1/2 BBL Left",
-};
+};*/
 export default function SingleProduct() {
   const dispatch = useDispatch();
-  // const data = fakeData;
   const data = useSelector((state) => state.activeProduct);
   // TODO: Update addressbar URL OR use react-router?
   // TODO: Using css-loader / CSS in JS instead of global styles?
