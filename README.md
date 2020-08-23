@@ -1,5 +1,11 @@
-# 
-You can use bootstrap , axios and redux.js and  material UI.
+#
+
+#### Development Preview: [visit](https://dash.toxdes.vercel.app/)
+
+#### Scammer's requirements in the PDF: [visit](./test_for_react_candidate.pdf)
+
+#### Scammer's instructions.
+You can use bootstrap , axios and redux.js and material UI.
 
 You have to use Eslint and Stylelint to covers both code quality and coding style issues. please don't disable any of them otherwise your work will not deploy successfully. If you are using VS code editor you should have these extensions installed Eslint and Stylelint.
 
