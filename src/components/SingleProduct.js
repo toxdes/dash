@@ -1,7 +1,7 @@
 import React from "react";
 import { PAGES, navigate } from "../store/actions";
 import { useDispatch } from "react-redux";
-import { FaLock } from "react-icons/fa";
+import { FaLock } from "./common";
 
 const fakeData = {
   gatewayID: "gateway_id_123",

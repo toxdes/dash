@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  max-width: 1060px;
+  max-width: 1200px;
 }
 .products a {
   padding: 1rem 0rem;
@@ -170,9 +170,82 @@
   justify-content: center;
 }
 
-.products .content {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 40px;
-  grid-auto-rows: auto;
+.products > .content {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.small-card .content {
+  width: 220px;
+  cursor: pointer;
+  /* height: 420px; */
+  margin: 20px 4px;
+  justify-content: space-between;
+  border-radius: 20px;
+  transition: 0.2s ease-in;
+  /* overflow: scroll; */
+}
+.small-card .content:hover {
+  transform: scale(1.02);
+}
+.small-card .content:active {
+  transform: scale(0.98);
+}
+
+.small-card .content p {
+  font-size: 12px;
+}
+
+.small-card .content h2 {
+  font-size: 14px;
+  margin: 4px;
+  padding: 0;
+}
+.small-card .content .tap-id {
+  left: 10px;
+  top: 20px;
+  transform: scale(0.9);
+}
+
+.small-card .content .battery-volt {
+  flex-direction: column;
+  transform: scale(0.8);
+  right: 20px;
+}
+.small-card .content .battery-icon {
+  transform: scale(0.6);
+  margin: 0;
+  margin-top: -30px;
+  padding: 0;
+}
+
+.small-card .content .horizontal-values-bar {
+  width: 100%;
+  margin: 0px;
+  margin-top: -20px;
+  padding: 0px;
+}
+.small-card .content .horizontal-values-bar .item {
+  /* margin: 4px; */
+  width: auto;
+  margin: 0px 4px;
+  /* font-size: 12px; */
+}
+
+.small-card .content .horizontal-values-bar .item p {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.small-card .content .message-user {
+  /* overflow-y: scroll; */
+  margin: 10px auto;
+  height: 60px;
+}
+
+.small-card .content .message-user h3 {
+  font-size: 14px;
+  margin: 0;
+  margin-top: 4px;
+  padding: 0;
 }

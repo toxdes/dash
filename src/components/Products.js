@@ -44,9 +44,64 @@ export default function Products() {
 
 function SmallCard({ data, onClick }) {
   return (
-    <div onClick={onClick} className="small-card">
-      <p>Ayy got the data</p>
-      <p>{data.productName}</p>
+    <div onClick={onClick} className="sp small-card">
+      <div className="content">
+        <div className="tap-id">
+          <p>{data.tapID}</p>
+        </div>
+        <div className="battery-volt">
+          <img
+            src={require("../assets/battery-icon.svg")}
+            alt="battery-icon"
+            width="32"
+          />
+          <span className="value">
+            {(data.batteryVolt / (3.6 * 100)).toFixed(2)}%
+          </span>
+        </div>
+        <h2>{data.productName}</h2>
+        <h2>
+          <span className="value">{data.vesselSize}</span> BBL Keg
+        </h2>
+        <h2>
+          <span className="value">{data.timeLeft}</span> Days left
+        </h2>
+        <div className="battery-icon">
+          <img
+            src={require("../assets/battery-icon.svg")}
+            alt="battery-icon"
+            width="180"
+            height="auto"
+          />
+          <h3 className="percent-left value">{data.percentLeft} %</h3>
+        </div>
+        <div className="horizontal-values-bar">
+          <div className="item">
+            <p className="value">{data.volumeLeftinOz.toFixed(2)}</p>
+            <p>oz</p>
+          </div>
+          <div className="item">
+            <p className="value">{(data.volumeLeftinOz / 16).toFixed(2)}</p>
+            <p>Pint</p>
+          </div>
+          <div className="item">
+            <p className="value">{(data.volumeLeftinOz / 12).toFixed(2)}</p>
+            <p>12 oz</p>
+          </div>
+          <div className="item">
+            <p className="value">{(data.volumeLeftinOz / 8).toFixed(2)}</p>
+            <p>8 oz</p>
+          </div>
+          <div className="item">
+            <p className="value">{(data.volumeLeftinOz / 3).toFixed(2)}</p>
+            <p>3 oz</p>
+          </div>
+        </div>
+        <div className="message-user">
+          <h3 className="value">{data.messageForUser}</h3>
+          <h3>{data.messageForUser2}</h3>
+        </div>
+      </div>
     </div>
   );
 }

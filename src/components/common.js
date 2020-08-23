@@ -1,4 +1,5 @@
 import React from "react";
+export { FaLock } from "react-icons/fa";
 
 export function Loading({ w, h }) {
   return (
