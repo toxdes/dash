@@ -63,11 +63,7 @@ export default function SingleProduct() {
       </div>
       <div className="content">
         {data.isLocked && (
-          <FaLock
-            size="32px"
-            color="#1e238c"
-            style={{ position: "absolute", left: "120px", top: "10px" }}
-          />
+          <FaLock size="32px" color="#1e238c" className="lock" />
         )}
         <div className="tap-id">
           <p>{data.tapID}</p>

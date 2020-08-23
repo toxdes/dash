@@ -23,7 +23,7 @@
 }
 
 .sp .content {
-  width: 640px;
+  width: 540px;
   display: flex;
   position: relative;
   flex-direction: column;
@@ -33,6 +33,11 @@
   background-color: #65615b;
   color: #d8c200;
   padding: 2rem;
+}
+.sp .content .lock {
+  position: absolute;
+  left: 120px;
+  top: 10px;
 }
 .sp .content .tap-id {
   position: absolute;
@@ -50,7 +55,8 @@
   top: 40px;
 }
 .sp .content .tap-id p {
-  margin: auto;
+  margin: 0;
+  font-size: 12px;
 }
 .sp .content .battery-volt {
   position: absolute;
@@ -267,4 +273,37 @@
   margin: 0;
   margin-top: 4px;
   padding: 0;
+}
+
+@media screen and (max-width: 540px) {
+  .products .horizontal-bar {
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    min-width: 120px;
+    justify-content: center;
+  }
+  .products .horizontal-bar p {
+    margin: 4px 0px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .sp .content:not(.small-card) {
+    width: 90%;
+    padding: 8px 4px;
+    margin: 12px;
+    border-radius: 20px;
+    /* overflow: scoll; */
+  }
+  .sp .header {
+    flex-direction: column;
+  }
+  .sp .content .tap-id,
+  .sp .content .sidebox,
+  .sp .content .lock {
+    position: initial;
+    text-align: center;
+    margin: 4px auto;
+  }
 }
